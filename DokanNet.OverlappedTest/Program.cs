@@ -154,7 +154,11 @@ namespace DokanNet.OverlappedTest
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < blockSize; j++)
                 {
-                    if (res[i].buff[j] != i + 1) throw new Exception("Bad data");
+                    if (res[i].buff[j] != i + 1)
+                    {
+                        Console.WriteLine("Bad data, should be " + (i + 1) + ", but is " + res[i].buff[j]+ " Block offset: " + j);
+                        break;
+                    }
                 }
 
         }
